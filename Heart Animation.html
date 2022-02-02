@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart Animation</title>
+    <style>
+      body {
+        box-sizing: border-box;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #heart-loader {
+        box-sizing: content-box;
+      }
+
+      .heart-group {
+        transform-origin: 0 90px;
+        animation: group-anim 5s 1s infinite;
+      }
+
+      .heart-square {
+        stroke: #b8b8b8;
+        stroke-dasharray: 240, 240;
+        stroke-dashoffset: 240;
+        animation: square-anim 5s 1s infinite;
+      }
+
+      .heart-circle {
+        stroke: #b8b8b8;
+        stroke-dasharray: 188.522, 188.522;
+        stroke-dashoffset: 188.522;
+        transform-origin: 60px 30px;
+      }
+
+      .heart-circle.m--left {
+        animation: left-circle-anim 5s 1s infinite;
+      }
+
+      .heart-circle.m--right {
+        animation: right-circle-anim 5s 1s infinite;
+      }
+
+      .heart-heartPath {
+        stroke: #e21737;
+        fill: transparent;
+        stroke-dasharray: 308.522, 308.522;
+        stroke-dashoffset: 308.522;
+        animation: heart-anim 5s 1s infinite;
+      }
+
+      @keyframes square-anim {
+        12% {
+          stroke-dashoffset: 0;
+        }
+        43% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+        85% {
+          stroke-dashoffset: 0;
+          opacity: 0;
+        }
+        100% {
+          stroke-dashoffset: 0;
+          opacity: 0;
+        }
+      }
+
+      @keyframes left-circle-anim {
+        12% {
+          stroke-dashoffset: 188.522;
+        }
+        31% {
+          stroke-dashoffset: 0;
+          transform: translateY(0);
+        }
+        41% {
+          stroke-dashoffset: 0;
+          transform: translateY(-30px);
+        }
+        43% {
+          stroke-dashoffset: 0;
+          transform: translateY(-30px);
+          opacity: 1;
+        }
+        85% {
+          stroke-dashoffset: 0;
+          transform: translateY(-30px);
+          opacity: 0;
+        }
+        100% {
+          stroke-dashoffset: 0;
+          transform: translateY(-30px);
+          opacity: 0;
+        }
+      }
+
+      @keyframes right-circle-anim {
+        12% {
+          stroke-dashoffset: 188.522;
+        }
+        31% {
+          stroke-dashoffset: 0;
+          transform: translateX(0);
+        }
+        41% {
+          stroke-dashoffset: 0;
+          transform: translateX(30px);
+        }
+        43% {
+          stroke-dashoffset: 0;
+          transform: translateX(30px);
+          opacity: 1;
+        }
+        85% {
+          stroke-dashoffset: 0;
+          transform: translateX(30px);
+          opacity: 0;
+        }
+        100% {
+          stroke-dashoffset: 0;
+          transform: translateX(30px);
+          opacity: 0;
+        }
+      }
+
+      @keyframes group-anim {
+        43% {
+          transform: rotate(0);
+        }
+        54% {
+          transform: rotate(-45deg);
+        }
+        90% {
+          transform: rotate(-45deg);
+          opacity: 1;
+        }
+        97% {
+          transform: rotate(-45deg);
+          opacity: 0;
+        }
+        100% {
+          transform: rotate(-45deg);
+          opacity: 0;
+        }
+      }
+
+      @keyframes heart-anim {
+        55% {
+          stroke-dashoffset: 308.522;
+          fill: transparent;
+        }
+        70% {
+          stroke-dashoffset: 0;
+          fill: transparent;
+        }
+        87% {
+          stroke-dashoffset: 0;
+          fill: #e21737;
+        }
+        100% {
+          stroke-dashoffset: 0;
+          fill: #e21737;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <svg
+      id="heart-loader"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="-56 -10 150 104"
+      width="150"
+      height="104"
+    >
+      <g
+        class="heart-group"
+        style="
+          fill: none;
+          stroke-linejoin: round;
+          stroke-linecap: round;
+          stroke-width: 3px;
+        "
+      >
+        <path class="heart-square" d="M0,30 0,90 60,90 60,30z" />
+        <path
+          class="heart-circle m--left"
+          d="M60,60 a30,30 0 0,1 -60,0 a30,30 0 0,1 60,0"
+        />
+        <path
+          class="heart-circle m--right"
+          d="M60,60 a30,30 0 0,1 -60,0 a30,30 0 0,1 60,0"
+        />
+        <path
+          class="heart-heartPath"
+          stroke-width="4"
+          d="M60,30 a30,30 0 0,1 0,60 L0,90 0,30 a30,30 0 0,1 60,0"
+        />
+      </g>
+    </svg>
+  </body>
+</html>
